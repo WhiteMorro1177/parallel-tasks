@@ -8,7 +8,7 @@ namespace Task1
 	internal class Counter
 	{
 		private List<long[]> _vector;
-		private int _num_threads;
+		private long[] _sum_by_thread;
 
 		private long vector_sum = 0;
 		private long vector_items_amount = 0;
@@ -20,23 +20,17 @@ namespace Task1
 		public Counter(long[] vector, int num_threads)
 		{
 			_vector = PrepareVector(vector, num_threads);
-			_num_threads = num_threads;
-			vector_items_amount = vector.Length;
-		}
+			vector_items_amount += _vector.Select(item => item.Length).Sum();
 
+			_sum_by_thread = new long[num_threads];
+            Console.WriteLine("Working with {0} elements", vector_items_amount);
+        }
+
+		private static AutoResetEvent waitHandle = new AutoResetEvent(false);
 
 		public void Run()
 		{
 			var code_start = DateTime.Now;
-			Console.WriteLine("Prepare vector...");
-
-			Console.WriteLine(
-				"Time spent on prepare: {0} milliseconds",
-				(DateTime.Now - code_start).TotalMilliseconds
-			);
-
-
-			code_start = DateTime.Now; // restart timer
 			Console.WriteLine("Execute main code...");
 
 			foreach (var item in _vector)
@@ -48,7 +42,7 @@ namespace Task1
 				t.Start(args);
 			}
 
-			foreach (Thread t in threads) t.Join();
+			threads.ForEach(t => t.Join());
 
 			Console.WriteLine(
 				"Mean vector sum = {0}, time spent: {1} milliseconds",
@@ -75,13 +69,14 @@ namespace Task1
 			var _args = args as object[];
 			long[] vector = _args[0] as long[];
 			int id = (int) _args[1];
-
+			
 			foreach (long item in vector)
 			{
-				vector_sum += item;
+				_sum_by_thread[id] += item;
 			}
 
-            Console.WriteLine("Thread {0} complete", id);
+			vector_sum += _sum_by_thread[id];
+			Console.WriteLine("Thread {0} complete", id);
         }
 	}	
 }
