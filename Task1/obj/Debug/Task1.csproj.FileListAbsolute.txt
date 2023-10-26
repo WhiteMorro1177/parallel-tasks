@@ -5,3 +5,10 @@ D:\Visual Studio Projects\ParallelMethods\Task1\obj\Debug\Task1.csproj.AssemblyR
 D:\Visual Studio Projects\ParallelMethods\Task1\obj\Debug\Task1.csproj.CoreCompileInputs.cache
 D:\Visual Studio Projects\ParallelMethods\Task1\obj\Debug\Task1.exe
 D:\Visual Studio Projects\ParallelMethods\Task1\obj\Debug\Task1.pdb
+D:\Visual Projects\parallel-tasks\Task1\bin\Debug\Task1.exe.config
+D:\Visual Projects\parallel-tasks\Task1\bin\Debug\Task1.exe
+D:\Visual Projects\parallel-tasks\Task1\bin\Debug\Task1.pdb
+D:\Visual Projects\parallel-tasks\Task1\obj\Debug\Task1.csproj.AssemblyReference.cache
+D:\Visual Projects\parallel-tasks\Task1\obj\Debug\Task1.csproj.CoreCompileInputs.cache
+D:\Visual Projects\parallel-tasks\Task1\obj\Debug\Task1.exe
+D:\Visual Projects\parallel-tasks\Task1\obj\Debug\Task1.pdb

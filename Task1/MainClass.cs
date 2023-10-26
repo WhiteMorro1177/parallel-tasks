@@ -28,21 +28,27 @@ namespace Task1
 			DoSequencially(vector);
 
 			// parallel run
-			DoParallel(vector, num_threads: 2);
+			DoParallel(vector, num_threads: 4);
 		}
 
 		private static void DoParallel(long[] vector, int num_threads)
 		{
-            Console.WriteLine("Start parallel programm\n");
+            Console.WriteLine("\nStart parallel programm\n");
 
 			var counter = new Counter(vector, num_threads);
 
 			counter.Run();
-        }
+
+			Console.WriteLine(
+				"Mean vector sum = {0}, time spent: {1} milliseconds",
+				counter.Result,
+				counter.TimeSpent.TotalMilliseconds
+			);
+		}
 
 		private static void DoSequencially(long[] vector)
 		{
-            Console.WriteLine("Start sequencial programm\n");
+            Console.WriteLine("\nStart sequencial programm\n");
             var code_start = DateTime.Now;
 
 			long vector_sum = 0;
