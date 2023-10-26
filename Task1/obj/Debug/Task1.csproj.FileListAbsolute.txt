@@ -12,3 +12,12 @@ D:\Visual Projects\parallel-tasks\Task1\obj\Debug\Task1.csproj.AssemblyReference
 D:\Visual Projects\parallel-tasks\Task1\obj\Debug\Task1.csproj.CoreCompileInputs.cache
 D:\Visual Projects\parallel-tasks\Task1\obj\Debug\Task1.exe
 D:\Visual Projects\parallel-tasks\Task1\obj\Debug\Task1.pdb
+D:\Visual Studio Projects\parallel-tasks\Task1\bin\Debug\Task1.exe.config
+D:\Visual Studio Projects\parallel-tasks\Task1\bin\Debug\Task1.exe
+D:\Visual Studio Projects\parallel-tasks\Task1\bin\Debug\Task1.pdb
+D:\Visual Studio Projects\parallel-tasks\Task1\obj\Debug\Task1.csproj.AssemblyReference.cache
+D:\Visual Studio Projects\parallel-tasks\Task1\obj\Debug\Task1.csproj.CoreCompileInputs.cache
+D:\Visual Studio Projects\parallel-tasks\Task1\obj\Debug\Task1.exe
+D:\Visual Studio Projects\parallel-tasks\Task1\obj\Debug\Task1.pdb
+D:\Visual Studio Projects\parallel-tasks\Task1\obj\Debug\Task1.ChartPreview.resources
+D:\Visual Studio Projects\parallel-tasks\Task1\obj\Debug\Task1.csproj.GenerateResource.cache

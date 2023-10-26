@@ -36,8 +36,27 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChartPreview.Designer.cs">
+      <DependentUpon>ChartPreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Counter.cs" />
     <Compile Include="MainClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChartPreview.resx">
+      <DependentUpon>ChartPreview.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -25,13 +25,39 @@ namespace Task1
 
 
 			// sequencial run
-			DoSequencially(vector);
+			var sequncially_time_spent = DoSequencially(vector);
 
+			int num_threads = 4;
 			// parallel run
-			DoParallel(vector, num_threads: 4);
+			var in_parallel_time_spent = DoParallel(vector, num_threads);
+
+
+			// count statistics
+			double acceleration = sequncially_time_spent / in_parallel_time_spent;
+			double efficiency = acceleration / num_threads;
+
+            Console.WriteLine("Acceleration: {0}\nEfficiency: {1}", acceleration, efficiency);
+
+			// create charts
+			List<double> accelerations = new List<double>() { 1 };
+			List<double> efficiencies = new List<double>() { 1 };
+
+			for (int i = 2; i <= 3; i++)
+			{
+				var tmp_in_parallel_time_spent = DoParallel(vector, i);
+				var tmp_acceleration = sequncially_time_spent / tmp_in_parallel_time_spent;
+				accelerations.Add(tmp_acceleration);
+				efficiencies.Add(tmp_acceleration / i);
+			}
+
+			accelerations.Add(acceleration);
+			efficiencies.Add(efficiency);
+
+			new ChartPreview("Acceleration", accelerations).ShowDialog();
+			new ChartPreview("Efficiency", efficiencies).ShowDialog();
 		}
 
-		private static void DoParallel(long[] vector, int num_threads)
+		private static double DoParallel(long[] vector, int num_threads)
 		{
             Console.WriteLine("\nStart parallel programm\n");
 
@@ -44,9 +70,11 @@ namespace Task1
 				counter.Result,
 				counter.TimeSpent.TotalMilliseconds
 			);
+
+			return counter.TimeSpent.TotalMilliseconds;
 		}
 
-		private static void DoSequencially(long[] vector)
+		private static double DoSequencially(long[] vector)
 		{
             Console.WriteLine("\nStart sequencial programm\n");
             var code_start = DateTime.Now;
@@ -57,11 +85,14 @@ namespace Task1
 				vector_sum += vector[i];
 			}
 
+			var time_spent = (DateTime.Now - code_start).TotalMilliseconds;
+
 			Console.WriteLine(
 				"Mean vector sum = {0}, time spent: {1} milliseconds", 
 				vector_sum / vector.Length, 
-				(DateTime.Now - code_start).TotalMilliseconds
+				time_spent
 			);
+			return time_spent;
 		}
 	}
 }
