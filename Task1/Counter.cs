@@ -33,10 +33,15 @@ namespace Task1
 
 			if (vector_items_amount < vector.LongLength)
 			{
-				int difference = vector.Length - (int) vector_items_amount;
-                Console.WriteLine("difference: {0}", difference);
-                var skiped_items = _vector.Last().Skip(_vector.Last().Length).Take(difference);
-				skiped_items.ToList().ForEach(item => _vector.Last().Append(item));
+				Console.WriteLine("We lose element");
+				int difference = vector.Length - (int)vector_items_amount;
+				Console.WriteLine("difference: {0}", difference);
+				List<long> skipped_items = vector.Skip(vector.Length - difference).Take(difference).ToList();
+
+				List<long> last_array = _vector.Last().ToList();
+				skipped_items.ForEach(item => last_array.Add(item));
+
+				_vector[_vector.Count - 1] = last_array.ToArray();
 			}
 
 			_sum_by_thread = new long[num_threads];
