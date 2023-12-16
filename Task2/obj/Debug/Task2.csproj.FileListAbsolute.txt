@@ -1,0 +1,7 @@
+D:\Visual Projects\parallel-tasks\Task2\bin\Debug\Task2.exe.config
+D:\Visual Projects\parallel-tasks\Task2\bin\Debug\Task2.exe
+D:\Visual Projects\parallel-tasks\Task2\bin\Debug\Task2.pdb
+D:\Visual Projects\parallel-tasks\Task2\obj\Debug\Task2.csproj.AssemblyReference.cache
+D:\Visual Projects\parallel-tasks\Task2\obj\Debug\Task2.csproj.CoreCompileInputs.cache
+D:\Visual Projects\parallel-tasks\Task2\obj\Debug\Task2.exe
+D:\Visual Projects\parallel-tasks\Task2\obj\Debug\Task2.pdb

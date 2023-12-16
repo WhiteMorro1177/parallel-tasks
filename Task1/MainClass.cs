@@ -24,8 +24,8 @@ namespace Task1
 			Console.WriteLine($"Vector contain {N} items\n\nPrepare to executing...");
 
 
-			// sequencial run
-			var sequncially_time_spent = DoSequencially(vector);
+			// sequential run
+			var sequentially_time_spent = DoSequencially(vector);
 
 			int num_threads = 4;
 			// parallel run
@@ -33,7 +33,7 @@ namespace Task1
 
 
 			// count statistics
-			double acceleration = sequncially_time_spent / in_parallel_time_spent;
+			double acceleration = sequentially_time_spent / in_parallel_time_spent;
 			double efficiency = acceleration / num_threads;
 
             Console.WriteLine("Acceleration: {0}\nEfficiency: {1}", acceleration, efficiency);
@@ -45,7 +45,7 @@ namespace Task1
 			for (int i = 2; i <= 3; i++)
 			{
 				var tmp_in_parallel_time_spent = DoParallel(vector, i);
-				var tmp_acceleration = sequncially_time_spent / tmp_in_parallel_time_spent;
+				var tmp_acceleration = sequentially_time_spent / tmp_in_parallel_time_spent;
 				accelerations.Add(tmp_acceleration);
 				efficiencies.Add(tmp_acceleration / i);
 			}
