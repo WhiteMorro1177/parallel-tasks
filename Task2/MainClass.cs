@@ -15,19 +15,20 @@ namespace Task2
 	{
 		static void Main(string[] args)
 		{
+			var provider = new Provider();
+			var consumer = new Consumer();
 
+			// bind events
+			provider.ProductSet += consumer.OnProductCreated;
+			consumer.ProductUsed += provider.OnProductUsed;
+
+			while (true)
+			{
+                Console.WriteLine("Press 'Enter' to set a product...");
+				Console.ReadLine();
+
+				provider.SetProduct();
+			}
         }
-	}
-
-
-	public class Events
-	{
-		public EventHandler ProductSet;
-		public EventHandler ProductUsed;
-
-		public void OnProductSet()
-		{
-
-		}
 	}
 }

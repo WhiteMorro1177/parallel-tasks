@@ -1,24 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace Task2
 {
 	internal class Consumer
 	{
-		public string Name { get; private set; }
-		public Consumer(int number)
-		{
-			Name = $"Consumer {number}";
-		}
+		// vars
+		public delegate void ConsumerHandler(int productId);
+		public event ConsumerHandler ProductUsed;
 
+		public string Name { get; private set; }
+		private static Random random = new Random();
+		
+		// constructor
+		public Consumer()
+		{
+			Name = "Huge Nachos Fan";
+            Console.WriteLine($"Consumer \"{Name}\" created");
+		}
 
 		// event handler
-		public static void ProductSetHandler(object sender, EventArgs e)
+		public void OnProductCreated(Product product) 
 		{
-
-		}
+			int timeout = random.Next(1, 4) * 1000;
+			Console.WriteLine($"'{Name}' start using {product} || Timeout: {timeout}");
+			Thread.Sleep(timeout);
+            Console.WriteLine($"'{Name}' used {product}");
+			
+			ProductUsed?.Invoke(product.Id);
+        }
 	}
 }
