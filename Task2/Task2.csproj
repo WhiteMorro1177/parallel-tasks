@@ -40,6 +40,10 @@
     <Compile Include="MainClass.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Provider.cs" />
+    <Compile Include="ThreadController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

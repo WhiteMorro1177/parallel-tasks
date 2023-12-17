@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 
@@ -15,20 +16,17 @@ namespace Task2
 	{
 		static void Main(string[] args)
 		{
-			var provider = new Provider();
-			var consumer = new Consumer();
 
-			// bind events
-			provider.ProductSet += consumer.OnProductCreated;
-			consumer.ProductUsed += provider.OnProductUsed;
+			ThreadController threadController = new ThreadController();
 
-			while (true)
+			// create 20 products
+			for (int i = 0; i < 20; i++)
 			{
-                Console.WriteLine("Press 'Enter' to set a product...");
-				Console.ReadLine();
-
-				provider.SetProduct();
+                Console.WriteLine();
+                threadController.SetProduct();
 			}
+
+			threadController.StartAll();
         }
 	}
 }
